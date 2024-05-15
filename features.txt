@@ -1,0 +1,74 @@
+1)Follows Python's naming conventions(e.g., snake_case for function and variable names, PascalCase for class names/Module).
+modify=>functions->pascal, variable-camel_case
+
+2)Separation of Concerns. broken it down into smaller, more manageable parts, each with a specific concern or responsibility.
+    For Example, 
+    1)Data Access Layer:
+                 a)Validators handles all the request/response data validation.
+                 b)Models handles conversion of db object type to python types or to json.
+                 c)ML Models weights and required files.
+                 d)Database connection strings and transaction code(crud).
+    2)Business Access Layer:
+                a)all the Dependecies which will be injected into the controller will stay here. 
+                    -For example,ML models,db connection,etc..             
+                b)Services/Handlers which takes care of the business logic of the endpoint/api, will be living here.
+    3)Controllers handles request and response handling.
+                a)it contains the handling of all endpoints/apis.
+                b)The main responsibility of it is to get a request, use handlers and dependencies to generate results and give the response back to user.
+    4)Helpers contain all the utility functions that our business access layer uses.
+                For example:logging objects,global variables,etc.. 
+    5)Middlewares:
+                INFO:it sits between the client and app's main logic.It intercepts the request and can perform processing before sending it to main application.
+    6)Settings:
+                a)Env files to store environement vairables for different environemnts:dev,uat,prod.
+                b)Requirements files to store required packages in three different files for dev,uat,prod.
+    7)Tests:
+                a)contains all unit,integration types of tests inside that.
+    8)venv:
+                a)contains all the virtual environment files.
+    9)main.py
+                a)starting point of the app,it combines everything here and start the server and opens the apis.  
+
+Task:prepare comparison table of project structure.
+3)Planning to use a package named logguru for logging, which is 10x faster.
+    - Currently, logs are simultaneously stored in a file, showed to the console and stored into the database.[one at a time.]
+
+Task:email,db,file writes,logger.config for logging
+Remaining work items:
+        a)Need to find the best structure for showing logs and storing them into the db, see ecampaign logs for reference.
+        b)could not find any log collector to store logs after recieving lets say 40 log requests.(i.e. for background tasks)
+        c)Documenting the code:functions,classes and all utilities
+        d)May be using ORMs for db interactions that the simple queries.
+
+
+
+Questions:
+1)What are the naming conventions that we follow for functions,classes,variables,constants,modules/file_name?
+2)
+
+
+Tasks:
+a)set logguru for logging at db level first then at console and file level and then at email level
+b)Unify the naming convention everywhere in the code for 
+    Class->PascalCase
+    Variable->camelCase
+    Function->
+    Constant->
+    Module->
+c)venv->appsettings
+d)comparison table for python apis against .net for which modules do we use in each of above sections:
+    a)Data Access Layer:what all folder do?
+    b)Business Access Layer:what all folder do?
+    c)Controllers:
+    d)Helpers:
+    e)Middlewares:
+    f)Settings: what all folder do?
+    g)Logs: which module?
+    h)Tests:
+    i)venv/appsettings:
+    j)Helpers:
+    k)main.py:
+    l)naming conventions:
+    
+e)changes in the swagger doc through api router.=>DONE
+f)

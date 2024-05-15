@@ -1,0 +1,23 @@
+INFO    | 2024-05-15 11:09:31.407 | testing the route root
+INFO    | 2024-05-15 11:16:33.731 | Sdsds
+INFO    | 2024-05-15 11:17:05.379 | Testing the route root
+INFO    | 2024-05-15 11:17:05.386 | testing the route root
+INFO    | 2024-05-15 11:17:05.386 | testing the route root
+INFO    | 2024-05-15 11:44:59.388 | Sdsds
+INFO    | 2024-05-15 11:45:01.504 | Sdsds
+INFO    | 2024-05-15 11:47:24.041 | Sdsds
+INFO    | 2024-05-15 11:50:56.924 | Sdsds
+INFO    | 2024-05-15 11:51:00.010 | Sdsds
+INFO    | 2024-05-15 11:59:35.896 | Testing the route root
+INFO    | 2024-05-15 11:59:35.896 | Testing the route root
+INFO    | 2024-05-15 11:59:35.906 | testing the route root
+INFO    | 2024-05-15 11:59:35.906 | testing the route root
+INFO    | 2024-05-15 11:59:35.906 | testing the route root
+INFO    | 2024-05-15 12:02:31.127 | 500: fetch_documents() takes 3 positional arguments but 4 were given
+INFO    | 2024-05-15 12:02:31.127 | 500: fetch_documents() takes 3 positional arguments but 4 were given
+INFO    | 2024-05-15 12:11:53.979 | testing global
+INFO    | 2024-05-15 12:11:53.979 | testing global
+INFO    | 2024-05-15 12:15:05.768 | testing global
+INFO    | 2024-05-15 12:15:05.768 | testing global
+INFO    | 2024-05-15 12:16:05.199 | testing global
+INFO    | 2024-05-15 12:16:05.199 | testing global
