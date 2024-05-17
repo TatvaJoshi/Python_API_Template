@@ -1,13 +1,13 @@
 from fastapi import APIRouter
-from DAL.Models.feedback import Feedback
-from BAL.Services.feedback_service import FeedbackCollectionService
+from BAL.Handlers.FeedbackHandler import FeedbackCollectionService
+from Models.DTOs.FeedbackDTO import Feedback
 
 router = APIRouter(
     prefix="/feedback", tags=["feedback_collection"], responses={404: {"description": "Not found"}}
 )
 
 @router.post("/feedback_collection/")
-async def receive_feedback(feedback: Feedback):
+async def ReceiveFeedback(feedback: Feedback):
     """
     This endpoint is used to receive feedback from users about the model.
     The feedback is saved to the database and a success message is returned.
@@ -20,5 +20,5 @@ async def receive_feedback(feedback: Feedback):
 
     """
     # Write the feedback data to the database
-    await FeedbackCollectionService.write_feedback(feedback.model_dump())
+    await FeedbackCollectionService.WriteFeedback(feedback.model_dump())
     return {"message": "Feedback received successfully"}

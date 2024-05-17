@@ -1,43 +1,38 @@
-from Helpers.globals import get_model, get_model_fast, get_rerank_model, get_rerank_tokenizer
-from Helpers.old_utility.logger import get_console_logger, get_file_logger
 from fastapi import HTTPException
-
+from Helpers.Globals import GetModel, GetModelFast, GetRerankModel, GetRerankTokenizer
+from Helpers.ConfigLogger import LoggerFactory
 
 # TODO: Adding classes here instead using raw functions to improve structure of the code.
-async def get_model_dependency():
+async def GetModelDependency():
     try:
-        model = get_model()
+        model = GetModel()
         return model
     except Exception as e:
-        get_console_logger.critical(e)
-        get_file_logger.critical(e)
+        LoggerFactory().SetupFileConsoleLogger().critical(e)
         raise HTTPException(status_code=500, detail=str(e))
 
-async def get_model_fast_dependency():
+async def GetModelFastDependency():
     try:
-        model_fast = get_model_fast()
-        return model_fast
+        modelFast = GetModelFast()
+        return modelFast
     except Exception as e:
-        get_console_logger.critical(e)
-        get_file_logger.critical(e)
+        LoggerFactory().SetupFileConsoleLogger().critical(e)
         raise HTTPException(status_code=500, detail=str(e))
 
-async def get_rerank_tokenizer_dependency():
+async def GetRerankTokenizerDependency():
     try:
-        rerank_tokenizer = get_rerank_tokenizer()
-        return rerank_tokenizer
+        rerankTokenizer = GetRerankTokenizer()
+        return rerankTokenizer
     except Exception as e:
-        get_console_logger().critical(e)
-        get_file_logger().critical(e)
+        LoggerFactory().SetupFileConsoleLogger().critical(e)
         raise HTTPException(status_code=500, detail=str(e))
 
 
-async def get_reranker_model_dependency():
+async def GetRerankerModelDependency():
     try:
-        reranker = get_rerank_model()
+        reranker = GetRerankModel()
         return reranker
     except Exception as e:
-        get_console_logger().critical(e)
-        get_file_logger().critical(e)
+        LoggerFactory().SetupFileConsoleLogger().critical(e)
         raise HTTPException(status_code=500, detail=str(e))
 

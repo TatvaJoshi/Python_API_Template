@@ -1,6 +1,6 @@
 from typing import List, Tuple
 
-async def fetch_keyword_search_results(params, get_db) -> List[Tuple]:
+async def FetchKeywordSearchResults(params, getDb) -> List[Tuple]:
     reference_condition = ""
     if params.option == "webpages":
         reference_condition = "AND reference LIKE '%.aspx'"
@@ -14,6 +14,6 @@ async def fetch_keyword_search_results(params, get_db) -> List[Tuple]:
         ORDER BY ts_rank(document_with_idx_mutli_column, plainto_tsquery('{params.query}')) DESC
         LIMIT 20;
     """
-    async with get_db() as conn:
+    async with getDb() as conn:
         results = await conn.fetch(query)
     return results

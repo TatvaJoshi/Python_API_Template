@@ -15,7 +15,7 @@ class Settings(BaseSettings):
         env_file = "Settings/Environments/.env.dev"
         env_file_encoding = "utf-8"
 
-def load_config():
+def LoadConfig():
     settings = Settings()
     return (
         settings.DATABASE_HOST,
