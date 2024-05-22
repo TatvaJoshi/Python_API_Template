@@ -4,7 +4,7 @@ import uvicorn
 from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 from DAL.Database.DbConnection import ClosePool, InitPool
-from DAL.Database.DbConnectionReranker import ClosePoolRe
+from DAL.Database.DbConnectionReranker import ClosePoolRe, InitPoolRe
 from Helpers.ConfigLogger import LoggerFactory
 from Helpers.TimeMeasure import TimerContextManager
 from transformers import AutoTokenizer, pipeline, AutoModelForSequenceClassification
@@ -40,7 +40,7 @@ async def lifespan(app: FastAPI):
    with TimerContextManager("Load resources"):
        LoadResources()
    await InitPool()
-   await InitPool()
+   await InitPoolRe()
    redis = aioredis.from_url("redis://localhost")
    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
    SetFileConsoleLogger(LoggerFactory().SetupFileConsoleLogger())
